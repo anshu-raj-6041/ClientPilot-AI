@@ -1,6 +1,6 @@
 // Immediately Invoked fn
 (function () {
-    const api_Url = "http://localhost:3000/api/chat"
+    const api_Url = "https://client-pilot-ai.vercel.app/api/chat"
 
     const scriptTag = document.currentScript;
     const ownerId = scriptTag.getAttribute("data-owner-id")
@@ -21,7 +21,7 @@
         width: "56px",
         height: "56px",
         borderRadius: "50%",
-        background: "#000",
+        background: "#4f46e5",
         color: "#fff",
         display: "flex",
         alignItems: "center",
@@ -58,7 +58,7 @@
 
     })
     box.innerHTML = `<div style="
-    background:#000;
+    background:#4f46e5;
     color: #fff;
     padding: 12px 14px;
     font-size: 14px;
@@ -101,7 +101,7 @@
 
     <button id="chat-send" style="padding:8px 12px;
     border:none;
-    background:#000;
+    background:#4f46e5;
     color:#fff;
     border-radius:8px;
     font-size:13px;

@@ -7,8 +7,9 @@ import { motion } from "motion/react"
 function EmbedClient({ ownerId }: { ownerId: string }) {
   const navigate = useRouter()
   const [copied, setCopied] = useState(false)
+  const appUrl = (process.env.NEXT_PUBLIC_APP_URL || '').replace(/\/$/, '')
   const embedCode = `<script 
-  src="${process.env.NEXT_PUBLIC_APP_URL}/chatBot.js"
+  src="${appUrl}/chatBot.js"
   data-owner-id="${ownerId}">
 </script>`
   const copyCode = () => {

@@ -47,7 +47,7 @@ src/
 Create `.env.local` in the project root:
 
 ```env
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=https://client-pilot-ai.vercel.app/
 MONGODB_URL=<your_mongodb_connection_string>
 
 SCALEKIT_ENVIRONMENT_URL=<your_scalekit_environment_url>
@@ -73,9 +73,9 @@ npm run dev
 
 3. Open:
 
-- Home: `http://localhost:3000`
-- Dashboard: `http://localhost:3000/dashboard`
-- Embed page: `http://localhost:3000/embed`
+- Home: `https://client-pilot-ai.vercel.app/`
+- Dashboard: `https://client-pilot-ai.vercel.app/dashboard`
+- Embed page: `https://client-pilot-ai.vercel.app/embed`
 
 ## Auth + Access Flow
 
@@ -121,10 +121,10 @@ The API sets CORS headers to allow widget-based requests.
 Use the embed code from `/embed`, or add manually before `</body>`:
 
 ```html
-<script src="http://localhost:3000/chatBot.js" data-owner-id="YOUR_OWNER_ID"></script>
+<script src="https://client-pilot-ai.vercel.app/chatBot.js" data-owner-id="YOUR_OWNER_ID"></script>
 ```
 
-For production, replace `http://localhost:3000` with your deployed domain.
+Use your deployed domain for the embed source URL.
 
 ## Scripts
 
