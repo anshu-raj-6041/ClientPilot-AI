@@ -21,14 +21,14 @@
         width: "56px",
         height: "56px",
         borderRadius: "50%",
-        background: "#4f46e5",
+        background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
         color: "#fff",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
         fontSize: "22px",
-        boxShadow: "0 15px 40px rgba(0,0,0,0.35)",
+        boxShadow: "0 16px 36px rgba(79,70,229,0.35)",
         zIndex: "999999",
     })
     document.body.append(button)
@@ -40,72 +40,77 @@
         position: "fixed",
         bottom: "90px",
         right: "24px",
-        width: "320px",
-        height: "420px",
-        borderRadius: "14px",
-        background: "#fff",
+        width: "360px",
+        height: "520px",
+        borderRadius: "16px",
+        background: "#ffffff",
         // color: "#fff",
         display: "none",
         // alignItems: "center",
         // justifyContent: "center",
         // cursor: "pointer",
         // fontSize: "22px",
-        boxShadow: "0 25px 60px rgba(0,0,0,0.25)",
+        boxShadow: "0 24px 64px rgba(15,23,42,0.24)",
         zIndex: "999999",
-        fontFamily: "Inner, system-ui, sans-serif",
+        fontFamily: "Inter, system-ui, sans-serif",
         flexDirection: "column",
         overflow: "hidden",
 
     })
     box.innerHTML = `<div style="
-    background:#4f46e5;
+    background:linear-gradient(135deg, #4f46e5, #7c3aed);
     color: #fff;
-    padding: 12px 14px;
-    font-size: 14px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
     "
     >
     <span>Customer Support</span>
-    <span id="chat-close" style="cursor:pointer; font-size:16px">❌</span>
+    <span id="chat-close" style="cursor:pointer; font-size:24px; line-height:1; opacity:0.9;">×</span>
 
     </div>
 
 
     <div id="chat-messages" style="
     flex:1;
-    padding:12px;
+    padding:14px;
     overflow-y:auto;
-    background:#f9fafb;
+    background:#f8fafc;
     display:flex;
     flex-direction:column;
+    gap:8px;
     "
     ></div>
 
     <div style="
     display:flex;
-    border-top:1px solid #e5e7eb;
-    padding:8px;
+    border-top:1px solid #e2e8f0;
+    background:#ffffff;
+    padding:10px;
     gap:6px;"
     >
 
-    <input id="chat-input" type:"text" style="
+    <input id="chat-input" type="text" style="
     flex:1;
-    padding:8px 10px;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    font-size:13px;
+    padding:10px 12px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    color:#0f172a;
+    font-size:15px;
     outline:none;"
     placeholder="Type a message"/>
 
-    <button id="chat-send" style="padding:8px 12px;
+    <button id="chat-send" style="padding:10px 16px;
     border:none;
     background:#4f46e5;
     color:#fff;
-    border-radius:8px;
-    font-size:13px;
-    cursor-pointer;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
     "
     >Send</button>
     </div>
@@ -128,17 +133,22 @@
         const bubble = document.createElement("div")
         bubble.innerHTML = text
         Object.assign(bubble.style, {
-            maxWidth: "78px",
-            padding: "8px 12px",
+            maxWidth: "85%",
+            padding: "10px 12px",
             borderRadius: "14px",
-            fontSize: "13px",
-            lineHeight: "1.4",
-            marginBottom: "8px",
+            fontSize: "15px",
+            lineHeight: "1.55",
+            marginBottom: "2px",
             alignSelf: from === "user" ? "flex-end" : "flex-start",
-            background: from === "user" ? "#e0e0e0" : "#e5e7eb",
-            color: from === "user" ? "#fff" : "#111",
+            background: from === "user" ? "#4f46e5" : "#e2e8f0",
+            color: from === "user" ? "#ffffff" : "#0f172a",
             borderTopRightRadius: from === "user" ? "4px" : "14px",
             borderTopLeftRadius: from === "user" ? "14px" : "4px",
+            whiteSpace: "pre-wrap",
+            overflowWrap: "anywhere",
+            boxShadow: from === "user"
+                ? "0 6px 16px rgba(79,70,229,0.25)"
+                : "0 2px 8px rgba(15,23,42,0.08)",
         })
         messageArea.appendChild(bubble)
         messageArea.scrollTop = messageArea.scrollHeight
@@ -156,7 +166,7 @@
         typing.innerHTML = "AI Type kr rha hai..."
         Object.assign(typing.style, {
             fontSize: "12px",
-            color: "#6b7280",
+            color: "#64748b",
             marginBottom: "8px",
             alignSelf: "flex-start"
         })
@@ -206,6 +216,12 @@
 
 
     }
+
+    input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            sendBtn.click()
+        }
+    })
 
 
 })()
